@@ -71,7 +71,10 @@ public class Cookie {
             if(pos == 0){
                 String[] sub = s.split("=");
                 name = sub[0];
-                value = getDecode(sub[1]);
+                if (sub.length == 2)
+                    value = getDecode(sub[1]);
+                else // cookie that has no value
+                    value = "";
             } else {
                 String[] sub = s.split("=");
                 parseSection(sub);
